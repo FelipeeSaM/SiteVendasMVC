@@ -37,7 +37,8 @@ namespace SiteVendasMVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<SiteVendasMVCContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SiteVendasMVCContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("SiteVendasMVCContext"), builder =>
+                builder.MigrationsAssembly("SiteVendasMVC")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
